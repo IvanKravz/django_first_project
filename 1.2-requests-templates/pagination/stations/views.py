@@ -1,11 +1,12 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.conf import settings
 import csv
 
 DATA = []
 path = "C:\\Users\\Xiaom\\Desktop\\Python\\ДЗ\\DJANGO\\dj-homeworks\\1.2-requests-templates\\pagination\\data-398-2018-08-30.csv"
-with open(path, encoding='utf-8') as csvfile:
+with open(settings.BUS_STATION_CSV, encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         DATA.append(row)
