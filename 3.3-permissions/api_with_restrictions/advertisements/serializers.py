@@ -40,6 +40,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
 
-        # TODO: добавьте требуемую валидацию
+        creator = self.context["request"].user
+        blocked = Advertisement.objects.filter(creator=creator).exists()
 
         return data
